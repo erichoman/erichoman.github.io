@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="corporate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="/static/css/output-style.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>Eric Homan - Data Scientist & Astrophysicist</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Gradient Background */
+        .gradient-bg {
+            background: linear-gradient(
+                15deg,
+                #f8fafc 0%,
+                #f1f5f9 50%,
+                #e2e8f0 100%
+            );
+            background-size: 200% 200%;
+            animation: gradient 15s ease infinite alternate;
+        }
+
+        /* Experience Card Styles */
+        .experience-card {
+            background: white;
+            border-left: 4px solid #3B82F6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+            color: black;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(59,130,246,0.1);
+        }
+        
+        .timeline-dot {
+            background: #3B82F6;
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.1);
+        }
+
+        /* Text and Badge Colors */
+        .text-gray-800 {
+            color: black;
+        }
+
+        .text-gray-600 {
+            color: black;
+        }
+
+        .text-indigo-600 {
+            color: #5a67d8;
+        }
+
+        .badge-outline {
+            border-color: #3B82F6;
+            color: #3B82F6;
+        }
+
+        /* List Styles */
+        .list-disc {
+            list-style-type: disc;
+        }
+
+        .list-inside {
+            padding-left: 1em;
+        }
+
+        /* Prevent horizontal scroll */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Simplified gradient animation */
+        .gradient-bg {
+            background: linear-gradient(
+                15deg,
+                #f8fafc 0%,
+                #f1f5f9 50%,
+                #e2e8f0 100%
+            );
+            background-size: 200% 200%;
+            animation: gradient 15s ease infinite alternate;
+            will-change: background-position; /* Hint for browser optimization */
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* Optimized animations */
+        [data-aos] {
+            transition-duration: 0.5s !important;
+            transition-timing-function: cubic-bezier(0.16, 0.84, 0.44, 1) !important;
+        }
+
+        /* Reduce blur effects */
+        .backdrop-blur-lg {
+            backdrop-filter: blur(8px) saturate(180%);
+            -webkit-backdrop-filter: blur(8px) saturate(180%);
+        }
+
+        /* Optimize carousel */
+        .carousel {
+            contain: strict; /* Limits browser reflow calculations */
+        }
+
+        /* Simplify hover effects */
+        .hover\:translate-x-2 {
+            transition: transform 0.2s ease-out;
+            will-change: transform;
+        }
+
+        /* Disable animations for users preferring reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Professional color overrides */
+        .bg-gradient-to-r.from-primary.to-secondary {
+            background-image: linear-gradient(
+                to right,
+                #2b6cb0,
+                #3182ce
+            ) !important;
+        }
+        
+        .badge-primary {
+            background-color: #2b6cb0 !important;
+            border-color: #2b6cb0 !important;
+            color: white !important;
+        }
+        
+        .badge-secondary {
+            background-color: #4a5568 !important;
+            border-color: #4a5568 !important;
+            color: white !important;
+        }
+        
+        .badge-accent {
+            background-color: #38a169 !important;
+            border-color: #38a169 !important;
+            color: white !important;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+
+        /* Force color scheme */
+        :root {
+            color-scheme: light;
+        }
+        
+        /* Override any system dark mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                color-scheme: light;
+            }
+        }
+
+        /* Ensure consistent background colors */
+        .gradient-bg {
+            background: linear-gradient(
+                15deg,
+                #f8fafc 0%,
+                #f1f5f9 50%,
+                #e2e8f0 100%
+            ) !important;
+        }
+
+        /* Force light theme */
+        html[data-theme="corporate"] {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Ensure consistent text colors */
+        .text-gray-600, .text-gray-700, .text-gray-800 {
+            color: black !important;
+        }
+
+        /* Ensure consistent button colors */
+        .btn-primary {
+            background-color: #3B82F6 !important;
+            border-color: #3B82F6 !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-2 md:p-8 lg:p-12 gradient-bg">
+    <!-- Main Container -->
+    <div class="mx-2 md:mx-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 md:p-8 lg:p-12 overflow-hidden">
+        <!-- Profile Section -->
+        <div class="flex flex-col lg:flex-row items-stretch gap-12 py-16" data-aos="fade-up">
+            <!-- Left Column: Profile Info -->
+            <div class="flex flex-col md:flex-row lg:flex-col items-center gap-12 lg:w-3/5">
+                <!-- Avatar -->
+                <div class="avatar" data-aos="fade-right" data-aos-offset="50" data-aos-easing="ease-out-quad">
+                    <div class="w-64 rounded-full border-4 border-white shadow-lg">
+                        <img src="/static/images/me.jpg" alt="Profile Picture" 
+                             loading="lazy" 
+                             decoding="async"
+                             width="256"
+                             height="256" />
+                    </div>
+                </div>
+                
+                <!-- Info -->
+                <div class="text-center md:text-left flex-1" data-aos="fade-left" data-aos-delay="400">
+                    <h1 class="text-4xl font-bold mb-4 text-gray-800">Eric Homan</h1>
+                    <div class="text-xl mb-6 text-gray-600">Data Scientist | Machine Learning Engineer</div>
+                    
+                    <div class="mb-8 p-6 bg-white rounded-lg shadow-sm border-l-4 border-indigo-500">
+                        <p class="text-gray-700 leading-relaxed">
+                            Data scientist with a strong foundation in physics and applied mathematics. 
+                            My background in computational physics provides:
+                        </p>
+                        <ul class="list-disc list-inside mt-3 space-y-2 text-gray-700">
+                            <li>Advanced mathematical modeling capabilities</li>
+                            <li>Experience with large-scale numerical simulations</li>
+                            <li>Rigorous statistical analysis skills</li>
+                            <li>Proven ability to solve complex, open-ended problems</li>
+                        </ul>
+                        <p class="mt-4 text-gray-700">
+                            This unique combination enables me to approach machine learning challenges with 
+                            both theoretical depth and practical implementation expertise.
+                        </p>
+                    </div>
+
+                    <!-- Updated Education Section -->
+                    <div class="mb-6 p-4 bg-white rounded-lg shadow-sm">
+                        <h2 class="text-xl font-semibold mb-3 text-gray-800">Education</h2>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <div>
+                                    <p class="font-medium text-gray-800">MSc Computing with Data Analytics</p>
+                                    <p class="text-gray-600">Dublin City University | Expected 2025</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <div>
+                                    <p class="font-medium text-gray-800">BSc Physics with Astronomy</p>
+                                    <p class="text-gray-600">Dublin City University | First Class Honors (2024)</p>
+                                    <p class="text-sm text-indigo-600 mt-1">
+                                        Specialized in computational astrophysics and numerical methods
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Skills & Social -->
+            <div class="lg:w-2/5 lg:border-l lg:pl-12 lg:pt-8" data-aos="fade-left">
+                <!-- Skills Container -->
+                <div class="space-y-6">
+                    <!-- Languages Section -->
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4 text-center lg:text-left bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent select-none">Languages</h2>
+                        <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                Python
+                            </div>
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                SQL
+                            </div>
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                C#
+                            </div>
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                LUA
+                            </div>
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                R
+                            </div>
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                Javascript
+                            </div>
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                HTML
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Section -->
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4 text-center lg:text-left bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent select-none">Technical Skills</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="p-3 bg-white rounded-lg shadow-sm">
+                                <h3 class="font-medium text-indigo-600">Machine Learning</h3>
+                                <p class="text-sm text-gray-600">TensorFlow, PyTorch, Scikit-learn</p>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg shadow-sm">
+                                <h3 class="font-medium text-indigo-600">Data Engineering</h3>
+                                <p class="text-sm text-gray-600">Apache Spark, AWS Glue, Airflow</p>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg shadow-sm">
+                                <h3 class="font-medium text-indigo-600">Advanced Mathematical Concepts</h3>
+                                <p class="text-sm text-gray-600">Linear Algebra, Calculus, Probability</p>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg shadow-sm">
+                                <h3 class="font-medium text-indigo-600">Data Visualization</h3>
+                                <p class="text-sm text-gray-600">Matplotlib, Seaborn, Plotly</p>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg shadow-sm">
+                                <h3 class="font-medium text-indigo-600">Database Management</h3>
+                                <p class="text-sm text-gray-600">MySQL, PostgreSQL, MongoDB</p>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg shadow-sm">
+                                <h3 class="font-medium text-indigo-600">Cloud Platforms</h3>
+                                <p class="text-sm text-gray-600">AWS, Azure, Google Cloud</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hobbies Section -->
+                    <div class="pb-8">
+                        <h2 class="text-3xl font-bold mb-4 text-center lg:text-left bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent select-none">Hobbies</h2>
+                        <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                Everything to do with Space
+                            </div>
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                Musician
+                            </div>
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                Open Source
+                            </div>
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                Competitive Esports
+                            </div>
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                Philosophy
+                            </div>
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                Video Game Development
+                            </div>
+                            <div class="badge badge-lg bg-indigo-100 text-indigo-800 border-none px-4 py-3">
+                                Reading
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links - Desktop -->
+                    <div class="hidden lg:flex flex-col mt-8 social-links">
+                        <div class="grid grid-cols-3 gap-4">
+                            <a href="mailto:ejhoman92@gmail.com" class="btn btn-primary h-16 text-lg hover:translate-x-2 transition-transform duration-300 select-none" data-aos="zoom-in" data-aos-delay="200">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                Email
+                            </a>
+                            <a href="https://www.linkedin.com/in/eric-homan-570823264/" class="btn btn-primary h-16 text-lg hover:translate-x-2 transition-transform duration-300 select-none" data-aos="zoom-in" data-aos-delay="400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                                </svg>
+                                LinkedIn
+                            </a>
+                            <a href="https://github.com/erichoman" class="btn btn-primary h-16 text-lg hover:translate-x-2 transition-transform duration-300 select-none" data-aos="zoom-in" data-aos-delay="600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Timeline Section -->
+        <div class="py-8 md:py-16">
+            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent" data-aos="fade-up">Experience</h2>
+            
+            <!-- Timeline Card Container -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-lg">
+                <div class="relative container mx-auto px-2 md:px-6">
+                    <!-- Timeline Center Line - Hidden on mobile -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary to-secondary hidden md:block"></div>
+
+                    <!-- Mobile Timeline Line -->
+                    <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary to-secondary md:hidden"></div>
+
+                    <!-- Timeline Items -->
+                    <!-- Item 1 -->
+                    <div class="relative mb-12 md:mb-24" data-aos="fade-right">
+                        <div class="flex flex-col md:flex-row md:items-center">
+                            <!-- Left Content -->
+                            <div class="ml-16 md:ml-0 md:w-1/2 md:pr-8 md:text-right">
+                                <div class="experience-card p-6 rounded-lg">
+                                    <h3 class="text-lg font-semibold mb-2">
+                                        Computational Astrophysics Research Intern
+                                    </h3>
+                                    <div class="flex items-center text-sm mb-3">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                        </svg>
+                                        Dublin Institute for Advanced Studies
+                                    </div>
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <li>Developed Python-based simulation tools for cosmic ray propagation analysis</li>
+                                        <li>Tools I implemented are still being used today</li>
+                                        <li>Worked in a fast paced team environment</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Timeline Point -->
+                            <div class="absolute left-8 md:left-1/2 top-8 md:top-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 w-4 h-4 timeline-dot rounded-full"></div>
+                            <!-- Right Content (Empty on desktop) -->
+                            <div class="hidden md:block md:w-1/2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative mb-12 md:mb-24" data-aos="fade-left">
+                        <div class="flex flex-col md:flex-row md:items-center">
+                            <!-- Left Content (Empty on desktop) -->
+                            <div class="hidden md:block md:w-1/2"></div>
+                            <!-- Timeline Point -->
+                            <div class="absolute left-8 md:left-1/2 top-8 md:top-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 w-4 h-4 timeline-dot rounded-full"></div>
+                            <!-- Right Content -->
+                            <div class="ml-16 md:ml-0 md:w-1/2 md:pl-8">
+                                <div class="experience-card p-6 rounded-lg">
+                                    <h3 class="text-lg font-semibold mb-2">
+                                        Computational Physics Research Intern
+                                    </h3>
+                                    <div class="flex items-center text-sm mb-3">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                        </svg>
+                                        Dublin City University
+                                    </div>
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <li>Researched 2D representations of Graphene lattices for CNN input</li>
+                                        <li>Worked independently, this project also sparked my interest in machine learning</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative mb-12 md:mb-24" data-aos="fade-right">
+                        <div class="flex flex-col md:flex-row md:items-center">
+                            <!-- Left Content -->
+                            <div class="ml-16 md:ml-0 md:w-1/2 md:pr-8 md:text-right">
+                                <div class="experience-card p-6 rounded-lg">
+                                    <h3 class="text-lg font-semibold mb-2">
+                                        Technical Customer Service Agent
+                                    </h3>
+                                    <div class="flex items-center text-sm mb-3">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                        </svg>
+                                        The Irish Times
+                                    </div>
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <li>Support for technical and logistical issues representing a prestigious newspaper</li>
+                                        <li>Work in a time critical environment, excelling at all targets</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Timeline Point -->
+                            <div class="absolute left-8 md:left-1/2 top-8 md:top-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 w-4 h-4 timeline-dot rounded-full"></div>
+                            <!-- Right Content (Empty on desktop) -->
+                            <div class="hidden md:block md:w-1/2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative mb-12 md:mb-24" data-aos="fade-left">
+                        <div class="flex flex-col md:flex-row md:items-center">
+                            <!-- Left Content (Empty on desktop) -->
+                            <div class="hidden md:block md:w-1/2"></div>
+                            <!-- Timeline Point -->
+                            <div class="absolute left-8 md:left-1/2 top-8 md:top-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 w-4 h-4 timeline-dot rounded-full"></div>
+                            <!-- Right Content -->
+                            <div class="ml-16 md:ml-0 md:w-1/2 md:pl-8">
+                                <div class="experience-card p-6 rounded-lg">
+                                    <h3 class="text-lg font-semibold mb-2">
+                                        Aspiring Data Scientist
+                                    </h3>
+                                    <div class="flex items-center text-sm mb-3">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                        </svg>
+                                        Your Company
+                                    </div>
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <li>Excited to contribute to a dynamic team environment</li>
+                                        <li>Offering skills in data science and machine learning and advanced mathematics/problem solving</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="py-8 md:py-16 space-y-8 md:space-y-12">
+            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent" data-aos="fade-up">Projects</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Project cards -->
+                <div class="card bg-white shadow-md hover:shadow-lg transition-shadow">
+                    <div class="card-body">
+                        <h2 class="card-title text-xl font-semibold text-gray-800">
+                            Generalized Maximum Entropy Noise Reduction
+                        </h2>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="badge badge-outline py-2 text-indigo-600 border-indigo-200">Python</span>
+                            <span class="badge badge-outline py-2 text-indigo-600 border-indigo-200">Signal Processing</span>
+                            <span class="badge badge-outline py-2 text-indigo-600 border-indigo-200">Fourier Analysis</span>
+                            <span class="badge badge-outline py-2 text-indigo-600 border-indigo-200">PyPI</span>
+                            <span class="badge badge-outline py-2 text-indigo-600 border-indigo-200">Production ready code</span>
+                        </div>
+                        <p class="mt-4 text-gray-700">
+                            Created the only python implementation of the novel Generalized Maximum Entropy Noise Reduction algorithm.
+                            This package is available on PyPI and has led to further researh in material sciences at Dublin City University.
+                            This alogorithm is an advanced augmentation of Fourier analysis which accounts for sinusoidal artefacts.
+                        </p>
+                        <div class="mt-4 flex gap-3">
+                            <a href="https://github.com/erichoman/GMENoiseReduce" 
+                               class="btn btn-ghost text-indigo-600 hover:bg-indigo-50">
+                               View Code →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section - Visible only on smaller screens or when zoomed in -->
+        <div class="lg:hidden py-8 text-center" data-aos="fade-up">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="mailto:ejhoman92@gmail.com" class="btn btn-primary hover:scale-105 transition-transform" data-aos="zoom-in" data-aos-delay="200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Email
+                </a>
+                <a href="https://www.linkedin.com/in/eric-homan-570823264/" class="btn btn-primary hover:scale-105 transition-transform" data-aos="zoom-in" data-aos-delay="400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/erichoman" class="btn btn-primary hover:scale-105 transition-transform" data-aos="zoom-in" data-aos-delay="600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            once: true,
+            offset: 200,
+            mirror: false,
+            throttleDelay: 100,
+            disable: window.innerWidth < 768 // Disable on mobile
+        });
+
+        function toggleProject(projectId) {
+            const content = document.getElementById(projectId);
+            
+            if (content.classList.contains('h-0')) {
+                // Expand
+                content.classList.remove('h-0', 'opacity-0');
+                content.classList.add('h-auto', 'opacity-100');
+            } else {
+                // Collapse
+                content.classList.remove('h-auto', 'opacity-100');
+                content.classList.add('h-0', 'opacity-0');
+            }
+        }
+    </script>
+</body>
+</html>
